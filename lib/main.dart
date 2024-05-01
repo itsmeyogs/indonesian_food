@@ -174,9 +174,17 @@ class HomePage extends StatelessWidget {
 class FavoritePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final textStyle = theme.textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.normal);
     //mengambil data list favorite food dan listen setiap perubahan pada state
     final dataFavFood = context.watch<MyAppState>().favoriteFood;
+    //mengecek apakah data list favorite kosong atau tidak
+    if(context.watch<MyAppState>().favoriteFood.isEmpty){
+      //jika iya maka akan meanmpilkan teks berupa "No Favorites yet"
+      return Center(child: Text("No favorites yet", style: textStyle));
+    }
     //menambahkan widget listview untuk menampilkan data lebih dari satu secara vertikal
+
     return ListView.builder(
       //menentukan jumlah data yang akan ditampilkan
         itemCount: dataFavFood.length,
