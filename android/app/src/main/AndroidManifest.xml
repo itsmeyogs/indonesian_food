@@ -1,4 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<!--    menambahkan permission internet, agar aplikasi dapat mengakses internet ketika di realese(bukan debug)-->
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:label="Indonesian Food"
